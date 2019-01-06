@@ -1,0 +1,21 @@
+how you are structuring your web element 
+
+
+any peice of code that is very common and used multiple times : boiler plate code !
+The DOM is an object-oriented representation of the web page, which can be modified 
+with a scripting language such as JavaScript.
+ Every element in a document—the document as a whole, the head, tables within the document, 
+ table headers, text within the table cells—is part of the document object model for that document, so they can all 
+ be accessed and manipulated using the DOM and a scripting language like JavaScript.
+ 
+ 
+ API (HTML or XML page) = DOM + JS (scripting language)
+ 
+  different data types being passed around the API
+ :
+ 
+ 1.Document object : root document object itself 
+ 2.element : 
+ 3. nodeList : array of elements 
+ 4.Attribute : object reference that exposes a special (albeit small) interface for attributes. 
+ 5.NamedNodeMap : 
