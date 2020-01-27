@@ -1,0 +1,19 @@
+Provides : Data base software
+
+Percona server for : MySQL , MongoDB
+Percona XtraDB Cluster 
+Percona XtraBackup
+
+
+Tools for database monitoring and managment 
+
+Performance on Cloud and premises:
+
+Percona toolkit 
+Percona monitoring plugins
+
+DBA's across globe to automate tasks
+
+Perconas software : " a replacement for MySQL and MongoDB "
+
+
