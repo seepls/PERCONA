@@ -4,5 +4,5 @@
 1). Percona
 2). PostgreSQL (NO NO )
 3). CiviCRM 
-4). LLVM
+4). LLVM( too high )
 
