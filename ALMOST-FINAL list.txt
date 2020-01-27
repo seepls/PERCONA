@@ -2,7 +2,7 @@
 
 4 Organizations :
 1). Percona
-2). PostgreSQL
+2). PostgreSQL (NO NO )
 3). CiviCRM 
 4). LLVM
 
