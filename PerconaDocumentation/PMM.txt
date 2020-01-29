@@ -1,0 +1,16 @@
+PMM : Percona monitoring and managment
+
+Monitor what ?? > MySQL , PostgreSQL, MongoDB, ProxySQL
+
+1. PMM Concepts
+2. Installing PMM Server 
+3. Installing PMM Client 
+4. Using PMM Client 
+5. Service configuration for best results
+
+6. Adding AWS RDS and Aurora Services 
+7. Using PMM Metrics Monitor
+
+8. Using PMM Query ANalytics
+9. Notes 
+10. Dashboard references
