@@ -1,4 +1,14 @@
-# JS_Learn-
-my gsoc project on JS 
+  
+### Open Source databse and services.
 
-learning JS : and HTML ! may be CSS bits of!! 
+Contribution to community : 
+- bug fixes for open source project
+- engineering software for use and redistribution 
+
+
+#### AIM : Percona Open Source Conference in sept .
+
+#### Read : Percona Open Source Software Product
+
+
+### AIM : PERCONA CONTRIBUTOR 
