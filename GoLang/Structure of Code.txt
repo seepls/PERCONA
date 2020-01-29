@@ -1,0 +1,36 @@
+ 
+WIKI Pedia :
+Go === Golang 
+
+has :
+- memory safety 
+- support for garbage collection 
+- structural typing 
+- CSP-style concurrency
+
+
+Features :
+- Support for environment adopting patterns similar to dynamic languages
+- Compilation time is fast.
+- Inbuilt concurrency support: lightweight processes (via go routines), channels, select statement
+- Support for Interfaces and Type embedding
+- Production of statically linked native binaries without external dependencies
+
+
+File with extension .go 
+
+
+Structure of Code :::
+Package declaration
+Import packages 
+functions
+variables 
+statements and expression
+comments
+
+
+1. Go program run in packages
+2. The main package is the start point to run the progm.
+3. Each package has path and name associated with it
+
+
