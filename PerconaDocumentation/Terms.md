@@ -2,7 +2,7 @@
 Prometheus stores time-series data for 30 days, and QAN stores query data for 8 days 
 Adjust data retention time as per need . " Via Settings dashboard"
 
-
+ 
 ##### Data Source Name: DSN 
 
 database server attribute found on QAN page
