@@ -1,0 +1,11 @@
+PMM server in a virtual machine.  Distributed as an Open Virtual Appliance. Open Virtual Appliance(OVA) package.
+
+PMM Server Virtual Appliance.
+
+Run appliance in virtualBox
+
+# Experiment with PMM at a smaller scale on local m/c.
+
+STEP 1:  VIRTUAL BOX
+
+
