@@ -1,1 +1,24 @@
- 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+  labels:
+    app: sample
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: sample
+  template: // most important part of , and defines pod
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+      - name: sample
+        image: sample: v1
+        ports:
+        - containerPort: 80
+      environment: // environment 
+        CONFIG_SERVER: https://server:38023
