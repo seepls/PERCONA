@@ -10,7 +10,8 @@ spec:
   selector: 
     matchLabels:
       app: sample
-  template: // most important part of , and defines pod
+  template: 
+  #// most important part of , and defines pod
     metadata:
       labels:
         app: sample
@@ -22,3 +23,4 @@ spec:
         - containerPort: 80
       environment: // environment 
         CONFIG_SERVER: https://server:38023
+# comment 
