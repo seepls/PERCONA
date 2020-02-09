@@ -1,4 +1,4 @@
-PMM : Percona monitoring and managment
+PMM : Percona monitoring and managment of DATABASE MANAGMENT SYSTEM .
 
 Monitor what ?? > MySQL , PostgreSQL, MongoDB, ProxySQL
 
@@ -14,3 +14,6 @@ Monitor what ?? > MySQL , PostgreSQL, MongoDB, ProxySQL
 8. Using PMM Query ANalytics
 9. Notes 
 10. Dashboard references
+
+
+
