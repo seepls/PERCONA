@@ -1,0 +1,12 @@
+Docker installed to use Docker Command Line Interface (CLI) .
+
+Creating the first container ::
+1)  Dockerfile
+2). Dockerfile.cross
+3). summer.go
+
+A Docker image is a private filesystem, just for your container.
+Running a container launches your software with private resources, securely isolated from the rest of your machine.
+
+
+
