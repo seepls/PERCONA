@@ -1,6 +1,6 @@
 package main
-
-import (
+// importing 
+import ( 
 	"math/rand"
 	"time"
 
@@ -8,11 +8,14 @@ import (
 	tm "github.com/pdevine/go-asciisprite/termbox"
 )
 
+// variables 
 var random *rand.Rand
 var allSprites sprite.SpriteGroup
 var Width int
 var Height int
 
+
+// set constants , treesc0, treesc1,  
 const tree_c0 = `
 xxxxxxxxxxxxxxxxxxxxxxxxxxx###
 xxxxxxxxxxxxxxxxxxxxxxx#########
@@ -82,7 +85,7 @@ xxxxxxxxxxxxxxxxxxxxx$$$$$
   , , ~.~ ' ~~ '',' ~~.  ',.~ ,~~ . 
 ,.~,',.~ ~,'   ',',.~,.~.',~,',  ~,', ~,
 `
-
+// const sunc0 , cloud timer 1, cloud timer 0 , whale , 
 
 const sun_c0 = `
       ;   :   ;
@@ -117,6 +120,9 @@ x(   .  )
 (   (   ))
 x'- __.'`
 
+
+// declaring const various type of whales 
+
 const whale_c0 = `xxxxxxxxxxxxxxx##xxxxxxxx.xxxxx
 xxxxxxxxx##x##x##xxxxxxx==xxxxx
 xxxxxx##x##x##x##xxxxxx===xxxxx
@@ -141,6 +147,9 @@ xxx===x\___/""""""""""""""""\xx
 x===xx\                      }x
 xxxxxxx\__          o ______/xx
 xxxxxxxxxx\__        /    /xxxx`
+
+
+// letters , d , e ,l , m , n , s ,r,u 
 
 const font_crawford_d = `
 x___
@@ -215,11 +224,16 @@ x__ __
 x\__,_|`
 
 
+
+// struct in GO 
+
 type Letter struct {
 	sprite.BaseSprite
 	Timer   int
 	TimeOut int
 }
+
+// whale struct 
 
 type Whale struct {
 	sprite.BaseSprite
@@ -231,18 +245,24 @@ type Whale struct {
 	TargetX     int
 }
 
+// struct type treee
+
 type Tree struct {
 	sprite.BaseSprite
 	TimeOut int
 	Timer   int
 }
 
+
+// struct type Ocean
 type Ocean struct {
 	sprite.BaseSprite
 	Timer   int
 	TimeOut int
 }
 
+
+// struct type sun 
 type Sun struct {
 	sprite.BaseSprite
 	Timer   int
@@ -251,6 +271,9 @@ type Sun struct {
 	PosY    float64
 }
 
+
+
+//struct type cloud
 type Cloud struct {
 	sprite.BaseSprite
 	Timer   int
@@ -258,6 +281,8 @@ type Cloud struct {
 	VX      int
 }
 
+
+// adding letters 
 func NewLetter(s string, x, y, timeOut int) *Letter {
 	l := &Letter{BaseSprite: sprite.BaseSprite{
 		Visible: false,
@@ -276,6 +301,8 @@ func (l *Letter) Update() {
 	}
 }
 
+
+// add title 
 func addTitle() {
 	charMap := map[rune]string{
 		'd': font_crawford_d,
@@ -303,6 +330,8 @@ func addTitle() {
 	}
 }
 
+
+// functions newtree 
 func NewTree() *Tree {
 	t := &Tree{BaseSprite: sprite.BaseSprite{
 		Visible: true,
@@ -313,6 +342,7 @@ func NewTree() *Tree {
 	t.AddCostume(sprite.NewCostume(tree_c1, 'x'))
 	return t
 }
+
 
 func (t *Tree) Update() {
 	t.Timer++
@@ -326,6 +356,8 @@ func (t *Tree) Update() {
 		}
 	}
 }
+
+
 
 func NewOcean() *Ocean {
 	o := &Ocean{BaseSprite: sprite.BaseSprite{
@@ -392,6 +424,7 @@ func (s *Sun) Update() {
 		s.Timer = 0
 	}
 }
+
 
 func NewCloud(cloudType, posX, posY int) *Cloud {
 	c := &Cloud{BaseSprite: sprite.BaseSprite{
@@ -468,6 +501,8 @@ func (w *Whale) Update() {
 		}
 	}
 }
+
+
 
 func main() {
 	// XXX - Wait a bit until the terminal is properly initialized
