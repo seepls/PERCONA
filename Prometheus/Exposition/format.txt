@@ -1,0 +1,13 @@
+// Simple text-based format
+
+metric_name [
+  "{" label_name "="  `"` label_value `"` { "," label_name "=" `"` label_value `"` } [","] "}"
+] value [ timestamp ]
+
+
+
+four types of metrics :
+Counter 
+Gauge 
+Histogram 
+Summary
