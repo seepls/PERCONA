@@ -1,1 +1,23 @@
+#Alert format
+ALERT <alert name>
+  IF <expression>
+  [ FOR <duration>]
+  [ LABELS <label set> ]
+  [ ANNOTATIONS <label set> ]
+
+
  
+#Alert example
+
+groups:
+- name: example
+  rules:
+  - alert: cpuUsge
+    expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{job='node_exporter',mode="idle"}[5m])) * 100 ) > 95
+    for: 1m
+    labels: 
+    # Alerting severity
+      severity: critical
+    annotations:
+      summary: Machine under heavy load
+      
