@@ -1,0 +1,14 @@
+inhibit_rules:
+  - source_match:
+     alertname: 'TORRouterDown'
+    target_match_re:
+     alertname: '.*Unreachable'
+    equal: ['dc', 'rack']
+    
+    
+inhibiting Alert:
+{alertname="TorRouterDown",dc="MUC",rack="a01",team="networking"}
+
+inhibited Alert:
+{alertname="MysqlUnreachable",dc="MUC",rack="a01",team="backend"}
+
