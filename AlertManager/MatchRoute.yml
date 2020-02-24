@@ -1,0 +1,21 @@
+route:
+  group_by: ['alertname', 'system','dc']
+# dc : data center 
+  group_wait: 20s
+  group_interval: 30m
+  repeat_interval: 3h
+  reveiver: 'default'
+  routes: 
+    - receiver: 'mysql-general'
+      match: 
+        system: 'mysql'
+      routes: 
+        - receiver: 'mysql-auth'
+          match-re:
+            cluster: 'user|api'
+            
+    - receiver: 'kafka-general'
+      match-re:
+        system: 'kafka'
+        
+        
