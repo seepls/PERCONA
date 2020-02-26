@@ -1,0 +1,41 @@
+
+  
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'alertmanager@prometheus.com'
+  smtp_auth_username: ''
+  smtp_auth_password: ''
+  smtp_require_tls: false
+
+templates:
+- '/etc/alertmanager/template/*.tmpl'
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'web.hook'
+receivers:
+- name: 'web.hook'
+  webhook_configs:
+  - url: 'http://127.0.0.1:5001/'
+- name: 'operations-team'
+  email_configs:
+  - to: 'operations-team+alerts@example.org'
+  slack_configs:
+  - api_url: https://hooks.slack.com/services/XXXXXX/XXXXXX/XXXXXX
+    channel: '#prometheus-course'
+    send_resolved: true
+
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
+
+
+
