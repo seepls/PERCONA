@@ -1,0 +1,9 @@
+Rules in Prometheus written in YAML format 
+
+Types of rules 2 :
+1. Recording rules  ::
+ 
+2. Alerting Rules  ::
+
+
+
