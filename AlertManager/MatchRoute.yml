@@ -8,7 +8,7 @@ route:
   routes: 
     - receiver: 'mysql-general'
       match: 
-        system: 'mysql'
+        system: 'mysql'. 
       routes: 
         - receiver: 'mysql-auth'
           match-re:
