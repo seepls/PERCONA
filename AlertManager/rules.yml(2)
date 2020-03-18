@@ -1,0 +1,8 @@
+# absent rules for scrapped metrics
+- name: cronMissingAlert2
+  rules: 
+  - alert: MyJobMissingMetric
+    expr: up{job="corn"} == 1 unless my_metric
+    for: 6s
+    
+#
