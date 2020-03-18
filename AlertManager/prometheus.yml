@@ -34,4 +34,4 @@ scrape_configs:
     scrape_interval: 5s
 
     static_configs:
-         - targets: ['metrics:9171']
+         - targets: ['metrics:9171'] 
