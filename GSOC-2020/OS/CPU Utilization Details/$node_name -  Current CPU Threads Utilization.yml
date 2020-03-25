@@ -1,1 +1,12 @@
-
+groups:
+- name: 
+  rules:
+  - alert: CPU threads Utilization exceeding threshold
+    expr: clamp_max((sum by (cpu) ( (clamp_max(irate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[5m])*100,100)) )) or 
+    sum by (cpu) (max_over_time(node_cpu_average{node_name=~\"$node_name\", mode!=\"total\",mode!=\"idle\", mode!=\"wait\"}[5m])) ,100) > threshold
+    
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "CPU Thread Utilization exceeds threshold (instance {{ $node_name }})"
