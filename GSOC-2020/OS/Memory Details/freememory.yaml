@@ -2,7 +2,7 @@ groups:
 - name: Free Memory Percentage
   rules:
   - alert: very less free memory available
-    expr: avg by (node_name) ( max_over_time(node_memory_MemFree_bytes{node_name="$node_name"}[5m])) * 100 / max_over_time(node_memory_MemTotal_bytes{node_name="$node_name"}[$interval]))) < 1
+    expr: avg by (node_name) ( max_over_time(node_memory_MemFree_bytes{node_name="$node_name"}[5m])) * 100 / max_over_time(node_memory_MemTotal_bytes{node_name="$node_name"}[5m]))) < 1
     for: 5m
     labels:
       severity: high
