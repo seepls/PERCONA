@@ -1,0 +1,10 @@
+groups:
+- name: Disk Operations
+  rules:
+  - alert: unusual disk Operations
+    expr: avg by (node_name) (sum(rate(node_disk_reads_completed_total{node_name="$node_name"}[$interval])))
+    for: 5m
+    labels:
+      severity: high
+    annotations:
+      summary: "Host unusual disk Operations(instance {{ $labels.instance }})"
