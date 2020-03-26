@@ -1,12 +1,10 @@
 groups:
-- name: 
+- name: $node_name -  Current CPU Threads Utilization
   rules:
-  - alert: CPU threads Utilization exceeding threshold
-    expr: clamp_max((sum by (cpu) ( (clamp_max(irate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[5m])*100,100)) )) or 
-    sum by (cpu) (max_over_time(node_cpu_average{node_name=~\"$node_name\", mode!=\"total\",mode!=\"idle\", mode!=\"wait\"}[5m])) ,100) > threshold
-    
+  - alert: Core Thread Utilization exceeding threshold
+    expr: clamp_max(avg by () (max_over_time(node_cpu_average{node_name=~"$node_name", mode!= "total",mode!="idle", mode!="wait"}[5m])),100)  > 80 
     for: 5m
     labels:
-      severity: error
+      severity: high
     annotations:
-      summary: "CPU Thread Utilization exceeds threshold (instance {{ $node_name }})"
+      summary: "Current CPU Threads Utilization exceeds 80%  for (instance {{ $node_name }})"
