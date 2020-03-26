@@ -1,0 +1,10 @@
+groups:
+- name: $node_name - Current CPU Cores Temperature
+  rules:
+  - alert: Host Physical Component TooHot
+    expr: (sum by (sensor,node_name) (node_hwmon_temp_celsius{node_name="$node_name"})) * on(sensor) group_left(cpu)(label_replace(node_hwmon_sensor_label{node_name="$node_name",label=~"core.*"},"cpu", "$1", "label", "core_(.*)"))
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Host node overtemperature alarm (instance {{ $labels.instance }})"
