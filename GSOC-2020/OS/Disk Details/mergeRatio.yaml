@@ -1,0 +1,10 @@
+groups:
+- name: "Avg Disks Operations Merge Ratio for reads"
+  rules:
+  - alert: poor merge ratio of  logical IO requests into physical requests
+    expr: avg( 1 + irate(node_disk_reads_merged_total{ node_name=\"$node_name\"}[5m]) / irate(node_disk_reads_completed_total{ node_name=\"$node_name\"}[5m])) < 1.10  
+    for: 5m
+    labels:
+      severity: high
+    annotations:
+      summary: "Poor Merge ratio of (instance {{ $labels.instance }}) in reads"
