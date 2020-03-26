@@ -1,8 +1,9 @@
+
 groups:
 - name: Network Traffic 
   rules:
   -alert: high errors in receiving 
-    expr: avg by (node_name,device) (irate(node_network_receive_errs_total{node_name=~\"$node_name\", device!=\"lo\"}[5m])) == 1
+    expr: avg by (node_name) (irate(node_network_receive_errs_total{node_name=~"$node_name"}[5m])) == 1
     for: 5m
     labels:
       severity: warning
