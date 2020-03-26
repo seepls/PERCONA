@@ -4,14 +4,9 @@ groups:
 - name: Max Core Utilization
   rules:
   - alert: Core Utilization exceeding threshold
-    expr: clamp_max(max by () ((sum  by (cpu) ( (clamp_max(rate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[$interval]),1)) or 
-    (clamp_max(irate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[5m]),1)) )*100) or 
-    (max_over_time(node_cpu_average{node_name=~\"$node_name\", mode!=\"total\", mode!=\"idle\", mode!=\"wait\"}[$interval]) or
-    max_over_time(node_cpu_average{node_name=~\"$node_name\", mode!=\"total\",mode!=\"idle\", mode!=\"wait\"}[5m]))),100) > 75 
-    
+    expr: clamp_max((max_over_time(node_cpu_average{node_name=~\"$node_name\",   mode!=\"total\",mode!=\"idle\", mode!=\"wait\"}[5m]))),100) > 95
     for: 5m
     labels:
-      severity: error
+      severity: high
     annotations:
-      summary: "Core Utilization exceeds threshold (instance {{ $node_name }})"
- 
+      summary: "Core Utilization close to 95% (instance {{ $node_name }})"
