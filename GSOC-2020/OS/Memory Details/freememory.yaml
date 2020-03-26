@@ -1,0 +1,11 @@
+groups:
+- name: Free Memory Percentage
+  rules:
+  - alert: very less free memory available
+    expr: avg by (node_name) ( max_over_time(node_memory_MemFree_bytes{node_name="$node_name"}[5m])) * 100 / max_over_time(node_memory_MemTotal_bytes{node_name="$node_name"}[$interval]))) < 1
+    for: 5m
+    labels:
+      severity: high
+    annotations:
+      summary: "Host out of memory (instance {{ $labels.instance }})
+      description: "Node memory is filling up (< 1% left)  VALUE = {{ $value }}  LABELS: {{ $labels }}"
