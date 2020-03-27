@@ -1,0 +1,10 @@
+groups:
+- name: Scrape time by Job
+  rules:
+  - alert: prometheus is scraping exporters slowly.
+    expr:avg(avg_over_time(scrape_duration_seconds{service_type= "dbms name"}[5m])) by (job,service_name)) > 60 
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "prometheus is scraping exporters slowly VALUE = {{ $value }}"
