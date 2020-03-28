@@ -1,0 +1,13 @@
+groups:
+- name: CPU load and max core utilization
+  rules:
+  -alert: high CPU load 
+   expr: avg by (node_name) (((avg_over_time(node_procs_running{node_name=~"$node_name"}[5m])-1) / scalar(count(node_cpu_seconds_total{mode="user", node_name=~"$node_name"}))) > 0.85  
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Normalized CPU load exceeds 0.85 (instance {{ $labels.instance }}) "
+
+      
+
