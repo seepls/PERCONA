@@ -1,0 +1,10 @@
+groups:
+- name: MongoDB Cursors
+  rules:
+  -alert: too many mongodb cursors open 
+   expr: max_over_time(mongodb_mongos_cursors{cluster="$cluster", state="total_open"}[5m])> 10000
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "MongoDB number cursors open (instance {{ $labels.instance }})"
